@@ -14,7 +14,7 @@ $lucasCpf = new Cpf('236.459.712-89');
 $lucasEndereco = new Endereco('Tonantins', 'Manacá', 'Antônio Morango', 's/n');
 $lucas = new Titular($lucasCpf, 'Lucas Souza', $lucasEndereco);
 $primeiraConta = new Conta($lucas);
-var_dump($primeiraConta);
+var_dump($primeiraConta);//exibe as infromações do objeto
 
 $primeiraConta->depositar(500);
 
