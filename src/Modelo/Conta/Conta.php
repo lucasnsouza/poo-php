@@ -6,7 +6,7 @@ use Alura\Banco\Modelo\Conta\Titular;
 class Conta 
 {//por convenção as propriedades devem ser sempre privadas
     private Titular $titular; //recebe uma isntância da classe titular como parâmetro
-    private float $saldo;// private define que os valores de saldo só podem ser acessados através dos métodos
+    protected float $saldo;// private define que os valores de saldo só podem ser acessados através dos métodos
     private static $numeroDeContasCriadas = 0; //membro estático que inicia com 0, e cada novo objeto criado incrmenta um
 
     //método construtor é executado quando a instância de conta passa a existir, e daí inicializa essa instância
@@ -28,12 +28,14 @@ class Conta
     //método de saque
     public function sacar(float $valorASacar): void //Void indica a ausência de retorno.
     {
-        if ($valorASacar > $this->saldo) {
+        $tarifaDeSaque = $valorASacar * 0.05; //definindo tarifa de saque de 5%
+        $valorFinal = $valorASacar + $tarifaDeSaque;
+        if ($valorFinal > $this->saldo) {
             echo "Saldo indisponível." . PHP_EOL;
             return;
         }  
 
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorFinal;
         echo "Você sacou R$$valorASacar. Seu saldo agora é de R$$this->saldo."  . PHP_EOL;
     }
 
