@@ -8,16 +8,9 @@ use Alura\Banco\Modelo\Conta\Conta;
 class ContaPoupanca extends Conta
 {
     //método de saque da conta pupança, a tarifa tem valor diferente
-    public function sacar(float $valorASacar): void //Void indica a ausência de retorno.
+    //não precisamos escrever outro método, usamos o método da classe pai, sobreescrevemos
+    protected function percentualTarifaDeSaque():float
     {
-        $tarifaDeSaque = $valorASacar * 0.03; //definindo tarifa de saque de 5%
-        $valorFinal = $valorASacar + $tarifaDeSaque;
-        if ($valorFinal > $this->saldo) {
-            echo "Saldo indisponível." . PHP_EOL;
-            return;
-        }  
-
-        $this->saldo -= $valorFinal;
-        echo "Você sacou R$$valorASacar da Poupança. Seu saldo agora é de R$$this->saldo."  . PHP_EOL;
+        return 0.03;
     }
 }

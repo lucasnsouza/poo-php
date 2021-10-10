@@ -28,7 +28,7 @@ class Conta
     //método de saque
     public function sacar(float $valorASacar): void //Void indica a ausência de retorno.
     {
-        $tarifaDeSaque = $valorASacar * 0.05; //definindo tarifa de saque de 5%
+        $tarifaDeSaque = $valorASacar * $this->percentualTarifaDeSaque(); //definindo tarifa de saque com um método
         $valorFinal = $valorASacar + $tarifaDeSaque;
         if ($valorFinal > $this->saldo) {
             echo "Saldo indisponível." . PHP_EOL;
@@ -50,19 +50,6 @@ class Conta
 
         $this->saldo += $valorADepositar;
         echo "Seu depósito de R$$valorADepositar foi processado. Seu saldo agora é de R$$this->saldo."  . PHP_EOL;
-    }
-
-    //método de trasnferência entre em contas
-    public function transferir(float $valorAtransferir, Conta $contaDeDestino): void
-    {
-        if ($valorAtransferir > $this->saldo) {
-            echo "Você não têm saldo para fazer essa transferência."  . PHP_EOL;
-            return;
-        }
-
-        $this->sacar($valorAtransferir);
-        $contaDeDestino->depositar($valorAtransferir);
-        echo "Você transferiu R$$valorAtransferir. Seu saldo agora é de R$$this->saldo."  . PHP_EOL; 
     }
 
     //método para buscar cpf
@@ -87,5 +74,11 @@ class Conta
     public static function retornarNumeroDeContas():int
     {
         return self::$numeroDeContasCriadas;
+    }
+
+    //criando um método que retorna uma tarifa de saque
+    protected function percentualTarifaDeSaque(): float
+    {
+        return 0.05;
     }
 }
