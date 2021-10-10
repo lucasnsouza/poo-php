@@ -3,7 +3,8 @@ namespace Alura\Banco\Modelo\Conta; //é possível separar nossas classes em nam
 use Alura\Banco\Modelo\Conta\Titular;
 //arquivo padrão para criação de contas
 
-class Conta 
+//uma classe abstrata não pode ser instanciada, sempre instaciar uma classe filha
+abstract class Conta 
 {//por convenção as propriedades devem ser sempre privadas
     private Titular $titular; //recebe uma isntância da classe titular como parâmetro
     protected float $saldo;// private define que os valores de saldo só podem ser acessados através dos métodos
@@ -77,8 +78,6 @@ class Conta
     }
 
     //criando um método que retorna uma tarifa de saque
-    protected function percentualTarifaDeSaque(): float
-    {
-        return 0.05;
-    }
+    //método abstrato deve ser sempre declarado nas classes filha, que extendem a classe abstrata
+    abstract protected function percentualTarifaDeSaque(): float;
 }
