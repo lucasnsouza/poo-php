@@ -11,4 +11,10 @@ class Desenvolvedor extends Funcionario
     {
         $this->recebeAumento($this->retornaSalario() * 0.75);
     }
+
+    //bonificação espescífca para os desenvolvedores
+    public function calculaBonificacao(): float
+    {
+        return 500;
+    }
 }

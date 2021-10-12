@@ -6,20 +6,12 @@ use Alura\Banco\Modelo\{Cpf, Pessoa};
 //classe funcionário
 abstract class Funcionario extends Pessoa
 {
-    private string $cargo;
     private float $salario;
 
-    public function __construct(string $nome, Cpf $cpf, string $cargo, float $salario)
+    public function __construct(string $nome, Cpf $cpf, float $salario)
     {
         parent::__construct($nome, $cpf);//estou chamando o cosntrutor da classe pai, Pessoa
-        $this->cargo = $cargo;
         $this->salario = $salario;
-    }
-
-    //implementando getter
-    public function retornaCargo(): string
-    {
-        return $this->cargo;
     }
 
     //implementando setter que permite funcionário alterar nome
@@ -46,10 +38,7 @@ abstract class Funcionario extends Pessoa
         return $this->salario;
     }
 
-    //método de bonificação dos funcinários gerais da empresa
-    public function calculaBonificacao(): float
-    {
-        //bonificação de 10% em cima do salário
-        return $this->salario * 0.1;
-    }
+    //método abstrato de bonificação dos funcinários gerais da empresa
+    //método abstrato vai exigir que as classes filhas declarem o método
+    abstract public function calculaBonificacao(): float;
 }
