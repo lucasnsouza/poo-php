@@ -3,7 +3,7 @@ namespace Alura\Banco\Modelo;
 
 use Alura\Banco\Modelo\Cpf;
 //criando uma classe genérica pessoa, que vai ser estendida por classes mais específicas como Titular e Funcinário
-class Pessoa
+abstract class Pessoa
 {
     protected string $nome;
     private Cpf $cpf;
