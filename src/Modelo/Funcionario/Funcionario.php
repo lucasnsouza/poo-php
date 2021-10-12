@@ -1,7 +1,8 @@
 <?php
-namespace Alura\Banco\Modelo;
+namespace Alura\Banco\Modelo\Funcionario;
 
-use Alura\Banco\Modelo\Cpf;
+use Alura\Banco\Modelo\{Cpf, Pessoa};
+
 //classe funcionário
 class Funcionario extends Pessoa
 {
@@ -34,7 +35,7 @@ class Funcionario extends Pessoa
         return $this->salario;
     }
 
-    //método de bonificação dos funcinários
+    //método de bonificação dos funcinários gerais da empresa
     public function calculaBonificacao(): float
     {
         //bonificação de 10% em cima do salário

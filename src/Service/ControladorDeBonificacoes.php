@@ -2,7 +2,7 @@
 //essa é uma classe de serviço
 namespace Alura\Banco\Service;
 
-use Alura\Banco\Modelo\Funcionario;
+use Alura\Banco\Modelo\Funcionario\Funcionario;
 
 //nova classe para controlar o sistema de bonificações da empresa
 //essa classe vai calcular o quanto a empresa gasta com bonificações

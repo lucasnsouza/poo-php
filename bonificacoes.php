@@ -1,7 +1,8 @@
 <?php
 //arquivo de testes para o sitema de bonificações
 use Alura\Banco\Service\ControladorDeBonificacoes;
-use Alura\Banco\Modelo\{Cpf, Pessoa, Funcionario};
+use Alura\Banco\Modelo\{Cpf, Pessoa};
+use Alura\Banco\Modelo\Funcionario\{Funcionario, Diretor, Gerente};
 
 require_once 'autoload.php';
 
@@ -11,7 +12,7 @@ $umFuncionario = new Funcionario(
     'Programador', 
     900);
 
-$umaFuncionaria = new Funcionario(
+$umaFuncionaria = new Gerente(
     'Ana Clara', 
     new Cpf('763.025.450-12'), 
     'Gerente', 
