@@ -6,11 +6,13 @@ use Alura\Banco\Modelo\Cpf;
 class Funcionario extends Pessoa
 {
     private string $cargo;
+    private float $salario;
 
-    public function __construct(string $nome, Cpf $cpf, string $cargo)
+    public function __construct(string $nome, Cpf $cpf, string $cargo, float $salario)
     {
         parent::__construct($nome, $cpf);//estou chamando o cosntrutor da classe pai, Pessoa
         $this->cargo = $cargo;
+        $this->salario = $salario;
     }
 
     //implementando getter
@@ -24,5 +26,18 @@ class Funcionario extends Pessoa
     {
         $this->validarNomedaPessoa($nome);
         $this->nome = $nome;
+    }
+
+    //método getter para retronar o valor de salario
+    public function retornaSalario(): float
+    {
+        return $this->salario;
+    }
+
+    //método de bonificação dos funcinários
+    public function calculaBonificacao(): float
+    {
+        //bonificação de 10% em cima do salário
+        return $this->salario * 0.01;
     }
 }
