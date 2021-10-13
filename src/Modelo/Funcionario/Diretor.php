@@ -2,7 +2,9 @@
 //classe filha de Funcionario, como uma especificção de cargo e bônus
 namespace Alura\Banco\Modelo\Funcionario;
 
-class Diretor extends Funcionario
+use Alura\Banco\Modelo\Autenticavel;
+
+class Diretor extends Funcionario implements Autenticavel
 {
     //método de bonificação do CEO
     public function calculaBonificacao(): float
@@ -11,7 +13,7 @@ class Diretor extends Funcionario
         return $this->retornaSalario() * 2;
     }
 
-    //método de autenticação, senha, do diretor
+    //método de autenticação, deve funcionar para diretor, gerente e titulares de conta
     public function podeAutenticar(string $senha): bool
     {
         //o retorno abixao só vai acontecer se o parâmetro for true

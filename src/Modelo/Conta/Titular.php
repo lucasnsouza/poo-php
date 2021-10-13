@@ -2,11 +2,12 @@
 namespace Alura\Banco\Modelo\Conta;
 
 //usar classe Pessoa, que está em outro namespace
-use Alura\Banco\Modelo\{Pessoa, Endereco};
+use Alura\Banco\Modelo\{Autenticavel, Pessoa, Endereco};
 use Alura\Banco\Modelo\Cpf;
 
 //vamos criar uma classe específica para definir o titular, cada classe deve ter um arquivo separado
-class Titular extends Pessoa//a classe Titular herda as propriedades da Classe Pessoa
+//a classe Titular herda as propriedades da Classe Pessoa
+class Titular extends Pessoa implements Autenticavel
 {
     private Endereco $endereco;
 
@@ -32,5 +33,11 @@ class Titular extends Pessoa//a classe Titular herda as propriedades da Classe P
     public function retornaNomeDoTitular():string
     {
         return $this->retornaNome();
+    }
+
+    //implementando método definido como obrigatório pela interface
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === 'abcd';
     }
 }
