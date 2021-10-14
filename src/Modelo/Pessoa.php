@@ -2,9 +2,13 @@
 namespace Alura\Banco\Modelo;
 
 use Alura\Banco\Modelo\Cpf;
+use Alura\Banco\Modelo\AcessoPropriedades; //chamndo trait
+
 //criando uma classe genérica pessoa, que vai ser estendida por classes mais específicas como Titular e Funcinário
 abstract class Pessoa
 {
+    use AcessoPropriedades;
+
     protected string $nome;
     private Cpf $cpf;
 

@@ -9,7 +9,10 @@ require_once 'autoload.php';
 $umFuncionario = new Desenvolvedor(
     'Lucas Souza', 
     new Cpf('462.852.439-00'),
-    900);
+    900
+);
+
+echo $umFuncionario->nome; //usando método mágico __get através da trait AcessoPropriedades que é utilizada pela Classe Pessoa, da qual Classe Funcionario é filha, que por sua vez a Classe Desenvolvedor é filha
 
 $umFuncionario->sobeDeNivel();
 
