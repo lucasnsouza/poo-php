@@ -1,7 +1,8 @@
 <?php
 namespace Alura\Banco\Modelo;
 //criando uma classe específica para o cpf
-class Cpf
+//final indica que essa classe não pode ser extendida
+final class Cpf
 {
     private string $cpf;
 

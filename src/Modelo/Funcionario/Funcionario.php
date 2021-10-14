@@ -17,7 +17,7 @@ abstract class Funcionario extends Pessoa
     //implementando setter que permite funcionário alterar nome
     public function defineNovoNome(string $nome): void
     {
-        $this->validarNomedaPessoa($nome);
+        $this->validarNomeDaPessoa($nome);
         $this->nome = $nome;
     }
 

@@ -11,7 +11,9 @@ namespace Alura\Banco\Modelo;
  * @property-read string $numero
  */
 
-class Endereco 
+
+//final indica que essa classe não pode ser extendida
+final class Endereco 
 {
     private string $cidade;
     private string $bairro;

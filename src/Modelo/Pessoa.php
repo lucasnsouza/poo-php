@@ -27,7 +27,7 @@ abstract class Pessoa
     }
 
     //método para validar nome, embora os métodos no geral sejam públicos, esse método só importará na criação da conta, não precisa ficar acessível para o usuário depois
-    public function validarNomedaPessoa(string $nome):void
+    public function validarNomeDaPessoa(string $nome):void
     {
         if (strlen($nome) < 5) {//verifica se o nme inserido tem menos de 5 carcteres
             echo "Você precisa inserir um nome com pelo menos 5  carcteres ou nome e sobrenome.";
