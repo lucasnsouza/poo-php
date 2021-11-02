@@ -50,3 +50,8 @@ $umFuncionario = new Desenvolvedor('Maria Eduarda', new Cpf('123.456.789-10'), 1
 $umFuncionario->defineNovoNome('Maria Santos');
 var_dump($umFuncionario);
 
+$umaContaCorrente = new ContaCorrente(new Titular(new Cpf("012.345.678-90"), "Ana Clara", new Endereco("Duartina", "Centro", "Uma rua", "15")));
+var_dump($umaContaCorrente);
+
+$umaContaCorrente->depositar(500);
+echo $umaContaCorrente->retornarSaldo();
